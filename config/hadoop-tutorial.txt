@@ -10,16 +10,11 @@ cat ~/.ssh/id_rsa.pub | ssh datanode2 "cat ~/.ssh/authorized_keys"
 cat ~/.ssh/id_rsa.pub | ssh datanode3 "cat ~/.ssh/authorized_keys"
 
 
-
-
-
-
-
-
-
-
 wget mirror.nexcess.net/apache/mahout/0.12.0/apache-mahout-distribution-0.12.0.tar.gz
 
 tar zxvf apache-mahout-distribution-0.12.0.tar.gz
 
 
+FAILED: ParseException line 1:28 cannot recognize input near ',' 'int' ',' in column type
+create table employee(emp_id, int, name string, salary double) row format delimited fields terminated by ',';
+CREATE EXTERNAL TABLE employee (cid string, `end` string, category string) STORED BY 'org.apache.hadoop.hive.dynamodb.DynamoDBStorageHandler' TBLPROPERTIES ("dynamodb.table.name" = "Projects", "dynamodb.column.mapping" = "cid:cid,end:end,category:category");
