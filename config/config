@@ -1,0 +1,16 @@
+Host namenode
+	HostName ec2-52-24-248-79.us-west-2.compute.amazonaws.com
+	User ubuntu
+	IdentityFile ~/.ssh/aws-authkey.pem
+Host datanode1
+	HostName ec2-35-160-24-51.us-west-2.compute.amazonaws.com
+	User ubuntu
+	IdentityFile ~/.ssh/aws-authkey.pem
+Host datanode2
+	HostName ec2-34-210-237-49.us-west-2.compute.amazonaws.com
+	User ubuntu
+	IdentityFile ~/.ssh/aws-authkey.pem
+Host datanode3
+	HostName ec2-34-211-209-100.us-west-2.compute.amazonaws.com
+	User ubuntu
+	IdentityFile ~/.ssh/aws-authkey.pem

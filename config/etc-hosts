@@ -1,0 +1,13 @@
+172.31.1.25 ec2-52-24-248-79.us-west-2.compute.amazonaws.com
+172.31.5.145 ec2-35-160-24-51.us-west-2.compute.amazonaws.com
+172.31.6.240 ec2-34-210-237-49.us-west-2.compute.amazonaws.com
+172.31.15.135 ec2-34-211-209-100.us-west-2.compute.amazonaws.com
+127.0.0.1 localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts

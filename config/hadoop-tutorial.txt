@@ -1,0 +1,25 @@
+Hadoop on Amazon AWS Part 3: Setup Passwordless SSH  
+https://www.youtube.com/watch?v=u7fIf_R-gaM
+
+sudo chmod 600 ~/.ssh/aws-authkey.pem
+ssh-keygen -f ~/.ssh/id_rsa -t rsa -P ""
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+cat ~/.ssh/id_rsa.pub | ssh datanode1 "cat ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh datanode2 "cat ~/.ssh/authorized_keys"
+cat ~/.ssh/id_rsa.pub | ssh datanode3 "cat ~/.ssh/authorized_keys"
+
+
+
+
+
+
+
+
+
+
+wget mirror.nexcess.net/apache/mahout/0.12.0/apache-mahout-distribution-0.12.0.tar.gz
+
+tar zxvf apache-mahout-distribution-0.12.0.tar.gz
+
+
