@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package recommender;
+package main;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import org.apache.mahout.cf.taste.model.DataModel;
 public class EvaluateRecommender {
     
     public static void main(String[] args) throws IOException, TasteException  {
-        DataModel model = new FileDataModel(new File("./dataset/dataset.csv"));
+        DataModel model = new FileDataModel(new File(args[0]));
         RecommenderEvaluator evaluator = new AverageAbsoluteDifferenceRecommenderEvaluator();
         RecommenderBuilder builder = new MyRecommenderBuilder();
         double result = evaluator.evaluate(builder, null, model, 0.9, 1.0);

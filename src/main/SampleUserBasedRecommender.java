@@ -3,38 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package recommender;
+package main;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
-import org.apache.mahout.cf.taste.impl.recommender.GenericItemBasedRecommender;
-import org.apache.mahout.cf.taste.impl.similarity.LogLikelihoodSimilarity;
+import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
+import org.apache.mahout.cf.taste.impl.recommender.GenericUserBasedRecommender;
+import org.apache.mahout.cf.taste.impl.similarity.PearsonCorrelationSimilarity;
 import org.apache.mahout.cf.taste.model.DataModel;
-import org.apache.mahout.cf.taste.recommender.ItemBasedRecommender;
+import org.apache.mahout.cf.taste.neighborhood.UserNeighborhood;
 import org.apache.mahout.cf.taste.recommender.RecommendedItem;
-import org.apache.mahout.cf.taste.similarity.ItemSimilarity;
+import org.apache.mahout.cf.taste.recommender.UserBasedRecommender;
+import org.apache.mahout.cf.taste.similarity.UserSimilarity;
 
 /**
  *
  * @author 985892
  */
-public class SampleItemBasedRecommender {
+public class SampleUserBasedRecommender {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException, TasteException  {
         // TODO code application logic here
-        DataModel model = new FileDataModel(new File("./dataset/dataset.csv"));
+        DataModel model = new FileDataModel(new File(args[0]));
         
-        ItemSimilarity similarity = new LogLikelihoodSimilarity(model);
+        UserSimilarity similarity = new PearsonCorrelationSimilarity(model);
+        UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
+        UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
         
-        ItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
-        
-        List recommendations = recommender.recommend(3, 4);
+        List recommendations = recommender.recommend(2, 3);
         for (Object recommendation : recommendations) {
             System.out.println((RecommendedItem) recommendation);
         }
