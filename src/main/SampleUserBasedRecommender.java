@@ -36,7 +36,7 @@ public class SampleUserBasedRecommender {
         UserNeighborhood neighborhood = new ThresholdUserNeighborhood(0.1, similarity, model);
         UserBasedRecommender recommender = new GenericUserBasedRecommender(model, neighborhood, similarity);
         
-        List recommendations = recommender.recommend(2, 3);
+        List recommendations = recommender.recommend(2, 2);
         for (Object recommendation : recommendations) {
             System.out.println((RecommendedItem) recommendation);
         }

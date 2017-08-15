@@ -34,7 +34,7 @@ public class SampleItemBasedRecommender {
         
         ItemBasedRecommender recommender = new GenericItemBasedRecommender(model, similarity);
         
-        List recommendations = recommender.recommend(3, 4);
+        List recommendations = recommender.recommend(4, 5);
         for (Object recommendation : recommendations) {
             System.out.println((RecommendedItem) recommendation);
         }
